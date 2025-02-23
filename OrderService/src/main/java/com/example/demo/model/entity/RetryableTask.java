@@ -2,6 +2,8 @@ package com.example.demo.model.entity;
 
 import com.example.demo.model.enums.RetryableTaskStatus;
 import com.example.demo.model.enums.RetryableTaskType;
+import com.example.demo.util.RetryableTaskStatusConverter;
+import com.example.demo.util.RetryableTaskTypeConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -16,14 +18,13 @@ import java.time.Instant;
 @Entity
 public class RetryableTask extends BaseEntity{
 
-    @Column(columnDefinition = "jsonb")
-    @ColumnTransformer(write = "?::jsonb")
+    @Column(columnDefinition = "JSON")
     private String payload;
 
-    @Convert(converter = RetryableTaskType.class)
+    @Convert(converter = RetryableTaskTypeConverter.class)
     private RetryableTaskType type;
 
-    @Convert(converter = RetryableTaskStatus.class)
+    @Convert(converter = RetryableTaskStatusConverter.class)
     private RetryableTaskStatus status;
 
     private Instant retryTime;
