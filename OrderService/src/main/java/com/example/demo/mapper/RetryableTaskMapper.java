@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.example.demo.mapper;
 
 import com.example.demo.model.entity.Order;
 import com.example.demo.model.entity.RetryableTask;
@@ -10,7 +10,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.UUID;

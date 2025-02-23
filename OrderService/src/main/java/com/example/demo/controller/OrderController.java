@@ -19,11 +19,8 @@ public class OrderController {
 
     @PostMapping
     public OrderDto createOrder(@RequestBody CreateOrderDto orderDto) {
-
         log.info("Create order: {}", orderDto);
-
         return orderService.createOrder(orderDto);
-
     }
 
 }
